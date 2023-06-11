@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String str=sc.next();
+        permutate(str,0);
+    }
+    public static void permutate(String str,int pos)
+    {
+        if(pos==str.length()-1) {
+            System.out.println(str);
+            return;
+        }
+        for (int current_pos=pos;current_pos<str.length();current_pos++)
+        {
+            str=swap(str,pos,current_pos);
+            permutate(str,pos+1);
+            str=swap(str,pos,current_pos);
+        }
+    }
+    public static String swap(String str,int pos,int current_pos)
+    {
+        char temp;
+        char[] character_array=str.toCharArray();
+        temp=character_array[current_pos];
+        character_array[current_pos]=character_array[pos];
+        character_array[pos]=temp;
+        return String.valueOf(character_array);
+    }
+
+
+}
