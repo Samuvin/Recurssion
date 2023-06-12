@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class app_not_apple
+{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String str=sc.next();
+        System.out.println(app(str));
+    }
+    static String app(String app)
+    {
+        if(app.isEmpty())
+            return "";
+        if(app.startsWith("app") && !app.startsWith("apple"))
+        {
+            return app(app.substring(3));
+        }
+        else {
+            return app.charAt(0)+app(app.substring(1));
+        }
+    }
+}
