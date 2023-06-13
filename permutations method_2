@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class permutations_method_2
+{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String str=sc.next();
+        permutate("",str);
+    }
+    static void permutate(String pro,String unpro)
+    {
+        if(unpro.isEmpty())
+        {
+            System.out.println(pro);
+            return;
+        }
+        char ch=unpro.charAt(0);
+        for(int i=0;i<=pro.length();i++)
+        {
+            String first=pro.substring(0,i);
+            String second=pro.substring(i,pro.length());
+            permutate(first+ch+second,unpro.substring(1));
+        }
+    }
+}
