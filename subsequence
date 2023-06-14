@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class subsequence
+{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String str=sc.next();
+        sequence("",str);
+    }
+    static void sequence(String pro,String unpro)
+    {
+        if(unpro.isEmpty()) {
+            System.out.println(pro);
+            return;
+        }
+
+        char ch=unpro.charAt(0);
+        sequence(pro+ch,unpro.substring(1));
+        sequence(pro,unpro.substring(1));
+    }
+}
