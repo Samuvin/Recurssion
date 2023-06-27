@@ -1,0 +1,17 @@
+public class element_present {
+    public static void main(String[] args) {
+        int[] arr={1,2,3,4};
+        System.out.println(search(arr,14,0));
+    }
+    static boolean search(int[] arr,int tar,int ind)
+    {
+        if(ind==arr.length)
+            return false;
+        if(arr[ind]==tar)
+            return true;
+        else
+            return search(arr,tar,ind+=1);
+
+
+    }
+}
