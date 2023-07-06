@@ -1,0 +1,40 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class subsequence_iterative
+{
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        int[] arr=new int[3];
+        for(int i=0;i<3;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        List<List<Integer>> ans =subset(arr);
+        for(List<Integer> res: ans)
+        {
+            System.out.println(res);
+        }
+
+
+    }
+    static List<List<Integer>> subset(int[] arr)
+    {
+        List<List<Integer>> outer_list=new ArrayList<>();
+        outer_list.add(new ArrayList<>());
+        for(int num: arr)
+        {
+            int n=outer_list.size();
+            for(int i=0;i<n;i++)
+            {
+                List<Integer> internal_list=new ArrayList<>(outer_list.get(i));
+                internal_list.add(num);
+                outer_list.add(internal_list);
+            }
+        }
+        return outer_list;
+    }
+
+}
