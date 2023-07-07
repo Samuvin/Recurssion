@@ -1,0 +1,26 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class subset_duplicate
+{
+    public static void main(String[] args)
+    {
+
+        List<List<Integer>> arr=new ArrayList<>();
+        arr.add(new ArrayList<>());
+        List<Integer> internal=new ArrayList<>(arr.get(0));
+        internal.add(1);
+        arr.add(internal);
+        List<Integer> inter=new ArrayList<>(arr.get(1));
+        inter.add(3);
+        arr.add(inter);
+        List<Integer> inte=new ArrayList<>(arr.get(2));
+        inte.add(5);
+        arr.add(inte);
+        for(List<Integer> res: arr)
+        {
+            System.out.println(res);
+        }
+    }
+
+}
